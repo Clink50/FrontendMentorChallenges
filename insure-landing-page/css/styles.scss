@@ -29,6 +29,10 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+}
+
 .navigation {
     background-color: #fff;
     font-size: 1.3rem;
@@ -39,10 +43,26 @@ a {
     letter-spacing: .1rem;
     margin: 2rem auto;
     width: var(--container-width);
+    max-width: 100%;
 
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+
+    &__hamburger {
+        display: none;
+        background: transparent;
+        font-size: 1.7rem;
+        padding: 0.7rem 1.1rem;
+        border: 0.2rem solid var(--dark-violet-1);
+        font-weight: 100;
+        cursor: pointer;
+
+        &:focus {
+            outline: none;
+        }
+    }
 
     &__nav-items {
         list-style-type: none;
@@ -72,6 +92,7 @@ a {
     &__btn {
         color: var(--dark-violet-1);
         border: .2rem solid var(--dark-violet-1);
+        display: inline-block;
 
         &:hover {
             background-color: var(--dark-violet-1);
@@ -95,6 +116,7 @@ a {
 
     &__container {
         width: var(--container-width);
+        max-width: 100%;
         margin: 0 auto;
         position: relative;
     }
@@ -151,6 +173,7 @@ a {
 .content {
     margin: 15% auto;
     width: var(--container-width);
+    max-width: 100%;
 
     &__small-border {
         width: 15%;
@@ -165,10 +188,10 @@ a {
     }
 
     &__grid-items {
-        margin-bottom: 15rem; 
+        margin-bottom: 15rem;
 
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(auto-fill, 15rem);
         grid-gap: 2rem;
 
         .grid {
@@ -176,12 +199,12 @@ a {
                 display: flex;
                 flex-direction: column;
             }
-        
+
             &__icon {
                 margin-bottom: 3rem;
                 align-self: flex-start;
             }
-        
+
             &__heading {
                 font-size: 3rem;
                 color: #292626;
@@ -212,7 +235,7 @@ a {
     &__cta-heading {
         font-family: "DM Serif Display", sans-serif;
         font-size: 5rem;
-        font-weight: 400;    
+        font-weight: 400;
         padding: 5rem 7rem;
         width: 52%;
     }
@@ -264,6 +287,7 @@ a {
 
     &__container {
         width: var(--container-width);
+        max-width: 100%;
         margin: 0 auto;
         position: relative;
         z-index: 1;
@@ -323,5 +347,35 @@ a {
 
     a {
         color: hsl(228, 45%, 44%);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .navigation {
+        &__hamburger {
+            display: block;
+        }
+
+        &__nav-items {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+        }
+
+        &__nav-items.show {
+            display: flex;
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .navigation {
+        width: 80%;
+    }
+
+    .header {
+        &__container {
+            width: 80%;
+        }
     }
 }

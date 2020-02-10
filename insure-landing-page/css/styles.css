@@ -29,6 +29,10 @@ a {
   text-decoration: none;
 }
 
+img {
+  max-width: 100%;
+}
+
 .navigation {
   background-color: #fff;
   font-size: 1.3rem;
@@ -39,15 +43,32 @@ a {
   letter-spacing: .1rem;
   margin: 2rem auto;
   width: var(--container-width);
+  max-width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.navigation__hamburger {
+  display: none;
+  background: transparent;
+  font-size: 1.7rem;
+  padding: 0.7rem 1.1rem;
+  border: 0.2rem solid var(--dark-violet-1);
+  font-weight: 100;
+  cursor: pointer;
+}
+
+.navigation__hamburger:focus {
+  outline: none;
 }
 
 .navigation__nav-items {
@@ -84,6 +105,7 @@ a {
 .navigation__btn {
   color: var(--dark-violet-1);
   border: 0.2rem solid var(--dark-violet-1);
+  display: inline-block;
 }
 
 .navigation__btn:hover {
@@ -107,6 +129,7 @@ a {
 
 .header__container {
   width: var(--container-width);
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
 }
@@ -162,6 +185,7 @@ a {
 .content {
   margin: 15% auto;
   width: var(--container-width);
+  max-width: 100%;
 }
 
 .content__small-border {
@@ -180,8 +204,8 @@ a {
   margin-bottom: 15rem;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-columns: (15rem)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 15rem);
   grid-gap: 2rem;
 }
 
@@ -287,6 +311,7 @@ a {
 
 .footer__container {
   width: var(--container-width);
+  max-width: 100%;
   margin: 0 auto;
   position: relative;
   z-index: 1;
@@ -353,5 +378,33 @@ a {
 
 .attribution a {
   color: #3e52a3;
+}
+
+@media screen and (max-width: 767px) {
+  .navigation__hamburger {
+    display: block;
+  }
+  .navigation__nav-items {
+    display: none;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .navigation__nav-items.show {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .navigation {
+    width: 80%;
+  }
+  .header__container {
+    width: 80%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
