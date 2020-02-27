@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+:root {
+    --primary-color: hsl(0, 100%, 74%);
+    --secondary-color: hsl(248, 32%, 49%);
+    --dark-blue: hsl(249, 10%, 26%);
+    --gray-blue: hsl(246, 25%, 77%);
+    --btn-color: hsl(154, 59%, 51%);
+
+    --box-shadow: 0 6px 0 rgba(0, 0, 0, 0.1);
+    --rounded-corners: .5rem;
+}
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: inherit;
+    font-size: 62.5%;
+}
+
+body {
+    background-image: url("../images/bg-intro-mobile.png");
+    background-color: var(--primary-color);
+    font-size: 1.6rem;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+.container {
+    max-width: 350px;
+    margin: 6rem auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        
+    .header {
+        text-align: center;
+
+        &__heading {
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        &__subheading {
+            font-size: 1.5rem;
+        }
+    }
+
+    .alert {
+        background-color: var(--secondary-color);
+        padding: 1rem 2.5rem;
+        text-align: center;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--rounded-corners);
+        margin: 3rem 0 2rem;
+
+        display: flex;
+        justify-content: center;
+        
+        &__description {
+            font-weight: 400;
+        }
+    }
+
+    section .form {
+        background-color: #fff;
+        padding: 2rem;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--rounded-corners);
+
+        & .form-control {
+            margin-bottom: 1rem;
+
+            & input {
+                width: 100%;
+                padding: 2rem 2rem;
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                border-radius: var(--rounded-corners);
+
+                &::placeholder {
+                    font-size: 1.5rem;
+                    font-family: inherit;
+                    font-weight: 600;
+                }
+            }
+        }
+
+        & .btn {
+            font-size: 1.3rem;
+            width: 100%;
+            color: #fff;
+            font-family: inherit;
+            border: 0;
+            border-radius: var(--rounded-corners);
+            background-color: var(--btn-color);
+            text-transform: uppercase;
+            box-shadow: 0 5px 0 hsl(154, 59%, 44%);
+            padding: 1rem 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        & p {
+            color: grey;
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 0 auto;
+            width: 80%;
+
+            & .highlight {
+                color: var(--primary-color);
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        max-width: 1200px;
+    }
+}
